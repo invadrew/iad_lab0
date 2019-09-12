@@ -1,0 +1,54 @@
+{
+  "patterns": {
+    "P1": {
+      "expression": "(path):(line)"
+    },
+    "P2": {
+      "expression": "(path)\\s+(line)",
+      "path": "(?:\\/[\\w\\.\\-]+)+"
+    }
+  },
+  "commands": [
+    {
+      "namespace": "process-palette",
+      "action": "Helios Deploy",
+      "command": "ARTIFACT=`basename \"$PWD\"` && \\\nSERVER_DEPLOY_DIR=iad/$ARTIFACT && \\\nDEPLOY_EXCLUDE_REGEX=\"process-palette.json\" && \\\n# Archiving\ncd public; tar --exclude=$ARTIFACT.tar --totals -cvf $ARTIFACT.tar $(find * -type f | egrep -v $DEPLOY_EXCLUDE_REGEX) && \\\n# Archive uploading\nssh -p 2222 s241819@helios.cs.ifmo.ru mkdir -p $SERVER_DEPLOY_DIR && \\\nscp -P 2222 $ARTIFACT.tar s241819@helios.cs.ifmo.ru:~/$SERVER_DEPLOY_DIR && \\\n# Deployment\nssh -p 2222 s241819@helios.cs.ifmo.ru \"cd $SERVER_DEPLOY_DIR; tar -xvf $ARTIFACT.tar\"",
+      "arguments": [],
+      "cwd": null,
+      "inputDialogs": [],
+      "env": {},
+      "keystroke": "ctrl-shift-f10",
+      "stream": true,
+      "outputTarget": "panel",
+      "outputBufferSize": 80000,
+      "maxCompleted": 3,
+      "autoShowOutput": true,
+      "autoHideOutput": true,
+      "scrollLockEnabled": false,
+      "singular": true,
+      "promptToSave": true,
+      "saveOption": "all",
+      "patterns": [
+        "default"
+      ],
+      "successOutput": "{stdout}",
+      "errorOutput": "{stdout}\n{stderr}",
+      "fatalOutput": "Failed to execute : {fullCommand}\n{stdout}\n{stderr}",
+      "startMessage": "Start deployment!",
+      "successMessage": "Successfully deployed!\n",
+      "errorMessage": "Deployed failed!\nExecuted : {fullCommand}\nReturned with code {exitStatus}\n{stderr}",
+      "fatalMessage": "Failed to execute : {fullCommand}\n{stdout}\n{stderr}",
+      "menus": [],
+      "startScript": null,
+      "successScript": null,
+      "errorScript": null,
+      "scriptOnStart": false,
+      "scriptOnSuccess": false,
+      "scriptOnError": false,
+      "notifyOnStart": true,
+      "notifyOnSuccess": true,
+      "notifyOnError": true,
+      "input": null
+    }
+  ]
+}
