@@ -68,6 +68,11 @@ header h1 {
     font-weight: bold;
 }
 
+#grid_div {
+  max-height: 300px;
+  overflow: auto;
+}
+
 #res_grid {
     border-collapse: collapse;
     border: 2px solid #000;
@@ -87,5 +92,5 @@ header h1 {
 
 .input_error {
     color: red;
-    font-weight: bold; 
+    font-weight: bold;
 }

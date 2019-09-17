@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="grid_div">
     <table id="res_grid">
         <caption>Результаты</caption>
         <tr>

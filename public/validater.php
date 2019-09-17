@@ -12,7 +12,7 @@
             function validate($x, $y, $r) {
                 if (!in_array($r, array(1, 1.5, 2, 2.5, 3)) || !is_numeric($x) || $x < -5 || $x > 5 || !is_numeric($y) || $y < -5 || $y > 5) {
                     return "Bad input!";
-                } else if (($y >= 0 && $x < 0 && $y <= $r / 2 && $x >= -$r) || ($y < 0 && $x < 0 && $y >= -.5 * $x - $r) || ($y < 0 && $x >= 0 && $x * $x + $y * $y <= $r * $r)) {
+                } else if (($y >= 0 && $x <= 0 && $y <= $r / 2 && $x >= -$r) || ($y <= 0 && $x <= 0 && $y >= -.5 * $x - $r) || ($y <= 0 && $x >= 0 && $x * $x + $y * $y <= $r * $r)) {
                     return "In";
                 } else {
                     return "Out";
