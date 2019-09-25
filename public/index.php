@@ -53,6 +53,10 @@
           ?>
 
           <div id="pokemonizer-div" class="container content_block">
+              <div id="loading-img">
+                <img src="assets/psyduck.webp" width="70" height="70" >
+                <br>
+              </div>
               <button id="pokemonizer-btn">По Покемонить?</button>
           </div>
         <div>
