@@ -4,7 +4,7 @@
     <meta content="text/html; charset=utf-8">
     <title>Лабораторная работа #1. Валидатор</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
     <div id="content">

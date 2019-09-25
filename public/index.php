@@ -4,8 +4,10 @@
     <meta content="text/html; charset=utf-8">
     <title>Лабораторная работа #1</title>
 
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="script.js" defer></script>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script type="text/javascript" src="static/validater.js" defer></script>
+    <script type="text/javascript" src="static/pokemonizer.js" defer></script>
 </head>
 <body>
     <header class="container">
@@ -42,12 +44,18 @@
             </div>
         </div>
 
-        <?php
-            session_start();
-            if (sizeof($_SESSION['history'])){
-                include 'gridder.php';
-            }
-        ?>
+        <div class="blocks_wrapper">
+          <?php
+              session_start();
+              if (sizeof($_SESSION['history'])){
+                  include 'gridder.php';
+              }
+          ?>
+
+          <div id="pokemonizer-div" class="container content_block">
+              <button id="pokemonizer-btn">По Покемонить?</button>
+          </div>
+        <div>
     </div>
 </body>
 </html>
