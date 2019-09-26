@@ -54,8 +54,9 @@
           ?>
 
           <div id="pokemonizer-div" class="container content_block">
-              <div id="poke-grid-wrapper" style="display: none">
-                  <table id='poke-grid'>
+              <p style="display: none"></p>
+              <div id="poke-grid" style="display: none">
+                  <table>
                     <tr>
                       <th>Image</th>
                       <th>Name</th>

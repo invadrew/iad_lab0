@@ -16,19 +16,22 @@ $(document).ready(function() {
 
     getLocationById(Math.floor(Math.random() * MAX_LOCATION)).done(
       function(location) {
+        $('#pokemonizer-div > p').html(location.name + '<br>');
+        $('#pokemonizer-div > p').show();
+
         if (location.areas.length > 0) {
           $('#poke-none').hide();
           for (var area of location.areas) {
             getAreaByURL(area.url).done(
               function(_area) {
-                $('#poke-grid-wrapper').show();
+                $('#poke-grid').show();
                 for (var pokeEnc of _area.pokemon_encounters) {
                   getPokemonByURL(pokeEnc.pokemon.url).done(pokemonsGridFill)
                 }
             })
           }
         } else {
-          $('#poke-grid-wrapper').hide();
+          $('#poke-grid').hide();
           $('#poke-none').show();
         }
       }
@@ -50,7 +53,7 @@ function getAreaByURL(areaUrl) {
 }
 
 function pokemonsGridFill(pokemon) {
-  $('#poke-grid').find('tbody')
+  $('#poke-grid > table').find('tbody')
     .append(
       '<tr>' +
         `<td><img src="${pokemon.sprites.front_default}"></td>` +
