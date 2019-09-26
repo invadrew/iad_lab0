@@ -11,16 +11,25 @@ $(document).ready(function() {
   loadingImg();
 
   $('#pokemonizer-btn').click(function() {
+    // clear table before displaying new location
+    $('#poke-grid').find('tr:gt(0)').remove();
+
     getLocationById(Math.floor(Math.random() * MAX_LOCATION)).done(
       function(location) {
-        for (var area of location.areas) {
-          getAreaByURL(area.url).done(
-            function(_area) {
-              for (var pokeEnc of _area.pokemon_encounters) {
-                getPokemonByURL(pokeEnc.pokemon.url)
-              }
-              $('#loading-image').hide();
-          })
+        if (location.areas.length > 0) {
+          $('#poke-none').hide();
+          for (var area of location.areas) {
+            getAreaByURL(area.url).done(
+              function(_area) {
+                $('#poke-grid-wrapper').show();
+                for (var pokeEnc of _area.pokemon_encounters) {
+                  getPokemonByURL(pokeEnc.pokemon.url).done(pokemonsGridFill)
+                }
+            })
+          }
+        } else {
+          $('#poke-grid-wrapper').hide();
+          $('#poke-none').show();
         }
       }
     );
@@ -40,19 +49,28 @@ function getAreaByURL(areaUrl) {
   });
 }
 
+function pokemonsGridFill(pokemon) {
+  $('#poke-grid').find('tbody')
+    .append(
+      '<tr>' +
+        `<td><img src="${pokemon.sprites.front_default}"></td>` +
+        `<td>${pokemon.name}</td>` +
+        `<td>${pokemon.base_experience}</td>` +
+      '</tr>'
+    );
+}
+
+function pokemonsGridReset() {
+
+}
+
 function getPokemonByURL(pokeUrl) {
   return $.ajax({
     url: pokeUrl,
-    success: function (pokemon) {
-      $('#pokemonizer-div').prepend('<h2>' + pokemon.name + '</h2>');
-    }
   });
 }
 
 function loadingImg() {
-  // hidden by default
-  $('#loading-img').hide();
-
   $(document).ajaxStart(function() {
     $("#loading-img").show();
   });

@@ -5,6 +5,7 @@
     <title>Лабораторная работа #1</title>
 
     <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/pokemon.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script type="text/javascript" src="static/validater.js" defer></script>
     <script type="text/javascript" src="static/pokemonizer.js" defer></script>
@@ -53,10 +54,27 @@
           ?>
 
           <div id="pokemonizer-div" class="container content_block">
-              <div id="loading-img">
-                <img src="assets/psyduck.webp" width="70" height="70" >
+              <div id="poke-grid-wrapper" style="display: none">
+                  <table id='poke-grid'>
+                    <tr>
+                      <th>Image</th>
+                      <th>Name</th>
+                      <th>Gained XP</th>
+                    </tr>
+                  </table>
+                  <br>
+              </div>
+
+              <div id='poke-none' style="display: none">
+                  <p>There are no pokemons found in this location(((</p>
+                  <br>
+              </div>
+
+              <div id="loading-img" style="display: none">
+                <img src="assets/psyduck.webp" width="70" height="70">
                 <br>
               </div>
+
               <button id="pokemonizer-btn">По Покемонить?</button>
           </div>
         <div>
