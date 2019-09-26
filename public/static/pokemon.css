@@ -1,0 +1,29 @@
+#pokemonizer-div > p {
+    padding: 7px;
+    font-size: 25px;
+    color: #eb7a66;
+    font-weight: bold;
+}
+
+#poke-grid th {
+    background-color: rgb(59, 195, 118);
+    color: rgb(254, 132, 39);
+    font-size: 18px;
+}
+
+#poke-grid tr {
+    background-color: rgb(80, 173, 176);
+}
+
+#poke-grid {
+    max-height: 300px;
+    overflow: auto;
+}
+
+#poke-none > p {
+    font-size: 14px;
+}
+
+#pokemonizer-div button {
+  margin-top: 5px;
+}

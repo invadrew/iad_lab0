@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="static/style.css">
     <link rel="stylesheet" href="static/pokemon.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="static/validater.js" defer></script>
     <script type="text/javascript" src="static/pokemonizer.js" defer></script>
 </head>
@@ -68,6 +68,7 @@
 
               <div id='poke-none' style="display: none">
                   <p>There are no pokemons found in this location(((</p>
+                  <img src="assets/suprised_pikachu.png"  width="73" height="62">
                   <br>
               </div>
 
