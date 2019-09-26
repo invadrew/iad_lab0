@@ -22,7 +22,9 @@ $(document).ready(function() {
     getLocationById(Math.floor(Math.random() * MAX_LOCATION)).done(
       function(location) {
         // show location name
-        $('#pokemonizer-div > p').html(location.name + '<br>');
+        $('#pokemonizer-div > p').html(location.names.find( name => {
+          return name.language.name == 'en';
+        } ).name + '<br>');
         $('#pokemonizer-div > p').show();
 
         if (location.areas.length > 0) {
